@@ -6,19 +6,19 @@ import './Marathon.css'
 
 class Marathon extends React.Component {
 
-  inputElement = React.createRef()
+    inputElement = React.createRef()
 
-  constructor(props) {
+    constructor(props) {
     super(props);
 
     this.state = {
       movies: [],
       currentMovie: { movie: '', key: '' } 
     }
-  }
+    }
 
-  // handleInput
-  handleInput = (e) => {
+    // handleInput
+    handleInput = (e) => {
     // variable to hold the new movie
     // console.log(e.target.value)
     const newMovie = e.target.value;
@@ -28,10 +28,10 @@ class Marathon extends React.Component {
       currentMovie
       // [name]: value
     });
-  }
+    }
 
-  // addMovie
-  addMovie = (e) => {
+    // addMovie
+    addMovie = (e) => {
     e.preventDefault();
     // Need to grab the current movie from the state in order
     // to be able to add it
@@ -42,10 +42,10 @@ class Marathon extends React.Component {
       movies: movies,
       currentMovie: { movie: '', key: ''}
     });
-  }
+    }
 
-  // deleteMovie
-  deleteMovie = (key) => {
+    // deleteMovie
+    deleteMovie = (key) => {
     const filteredMovies = this.state.movies.filter( movie => {
       return movie.key !== key
     });
@@ -53,12 +53,13 @@ class Marathon extends React.Component {
     this.setState({
       movies: filteredMovies
     })
-  }
+    }
 
     render () {
+
         return (
             <div className="marathon">
-                <h3 className="marathonTitle">Marathon title</h3>
+                <h3 className="marathonTitle">{this.props.marathon.marathon}</h3>
                 <Movie
                     moviesList={this.state.movies}
                     deleteMovie={this.deleteMovie}
@@ -69,6 +70,7 @@ class Marathon extends React.Component {
                     inputElement={this.inputElement}
                     currentMovie={this.state.currentMovie}
                 />
+
             </div>
             )
     }

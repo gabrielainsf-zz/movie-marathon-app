@@ -1,7 +1,7 @@
-.marathon {
-    display: inline-block;
-    margin: 4.4rem 10%;
+.MarathonList {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    display: inline-block;
 }
