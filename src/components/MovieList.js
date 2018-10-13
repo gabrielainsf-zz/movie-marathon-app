@@ -6,6 +6,7 @@ class MovieList extends React.Component {
             <div className="MovieList">
                 <form onSubmit={this.props.addMovie}>
                     <input
+                        placeholder="Add a movie"
                         ref={this.props.inputElement}
                         value={this.props.currentMovie.movie}
                         onChange={this.props.handleInput}

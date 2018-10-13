@@ -4,7 +4,10 @@ class Movie extends React.Component {
 
     createMovieList = (movie) => {
         return <li
-                key={movie.key}>
+                key={movie.key}
+                onClick={() => this.props.deleteMovie(movie.key)}
+                >
+                    {movie.movie}
                </li>
     }
     render() {
