@@ -1,0 +1,7 @@
+.marathon {
+    display: inline-block;
+    margin: 4.4rem 10%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
