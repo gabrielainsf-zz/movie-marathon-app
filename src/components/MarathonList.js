@@ -1,5 +1,5 @@
 import React from 'react';
-import Marathon from './Marathon';
+import DisplayMarathon from './Marathon';
 import './MarathonList.css'
 
 class MarathonList extends React.Component {
@@ -10,13 +10,16 @@ class MarathonList extends React.Component {
     return (
         <div>
             {marathons.map(marathon => {
+                console.log(marathon.key)
                 return (
-                    <div className="MarathonList">
-                        <Marathon key={marathon.key} marathon={marathon}/>
-
+                    <div key={marathon.key} className="MarathonList">
+                        <DisplayMarathon marathon={marathon}/>
+                        <form onSubmit={() => this.props.deleteMarathon(marathon.key)}>
+                            <button type="submit">Delete</button>
+                        </form>
                     </div>
-                    )
 
+                )
             })}
         </div>
     )

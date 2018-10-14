@@ -1,10 +1,9 @@
 import React from 'react';
 import MovieList from './MovieList';
 import Movie from './Movie';
-import App from './../App'
 import './Marathon.css'
 
-class Marathon extends React.Component {
+class DisplayMarathon extends React.Component {
 
     inputElement = React.createRef()
 
@@ -76,4 +75,4 @@ class Marathon extends React.Component {
     }
 }
 
-export default Marathon;
+export default DisplayMarathon;

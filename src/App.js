@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Marathon from './components/Marathon';
 import AddMarathonBar from './components/AddMarathonBar'
 import MarathonList from './components/MarathonList'
 
