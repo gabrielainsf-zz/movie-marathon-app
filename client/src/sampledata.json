@@ -1,0 +1,17 @@
+{
+    "marathons": [
+        {
+        "marathon_id": 0,
+        "marathon_title": "Halloweeeeen",
+        "movie_list": [
+            {
+            "movie_id": 0,
+            "movie_title": "The Omen"
+            },
+            {
+            "movie_id": 1,
+            "movie_title": "Rosemary's Baby"
+            }
+        ]}
+    ]
+}

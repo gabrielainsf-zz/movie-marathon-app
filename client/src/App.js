@@ -1,54 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import sampledata from './sampledata.json'
 import AddMarathonBar from './components/AddMarathonBar'
 import MarathonList from './components/MarathonList'
 
 class App extends Component {
 
-  inputElement = React.createRef()
-
   constructor(props) {
     super(props);
 
     this.state = {
-      marathons: [],
-      currentMarathon: { marathon: '', key: ''},
-      data: null
-    };
+      "data": null
+    }
   }
 
-  handleInput = (e) => {
-    const marathonName = e.target.value;
-    const currentMarathon = { marathon: marathonName, key: Date.now() }
-
-    this.setState({
-      currentMarathon
-    });
-  }
-
-  addMarathon = (e) => {
-    e.preventDefault();
-
-    const marathonToAdd = this.state.currentMarathon
-    const marathonList = [...this.state.marathons, marathonToAdd]
-
-    this.setState({
-      marathons: marathonList,
-      currentMarathon: { marathon: '', key: '' }
-    });
-  }
-
-  deleteMarathon = (key) => {
-
-    const marathonsList = this.state.marathons
-    const filteredList = marathonsList.filter(marathon => {
-      return marathon.key !== key
-    });
-
-    this.setState({
-      marathons: filteredList
-    });
-  }
 
   componentDidMount() {
       // Call our fetch function below once the component mounts
@@ -68,21 +33,24 @@ class App extends Component {
   };
 
   render() {
+
+    let marathons = sampledata.marathons
+  
     return (
       <div className="App">
         <header className="App-header">
-          <AddMarathonBar
-            currentMarathon={this.state.currentMarathon}
-            addMarathon={this.addMarathon}
-            handleInput={this.handleInput}
-            inputElement={this.inputElement}
-          />
+          <h1>Marathons</h1>
         </header>
-        <h2>{this.state.data}</h2>
-        <MarathonList
-          marathons={this.state.marathons}
-          deleteMarathon={this.deleteMarathon}
-        />
+        <ul>
+          {marathons.map(marathon => {
+            return <div key={marathon.marathon_id}> <h2>{marathon.marathon_title}</h2>
+              {marathon.movie_list.map( movie => {
+                return <li key={movie.movie_id}> {movie.movie_title} </li>
+              })}
+              </div>
+    })}
+        </ul>
+
       </div>
     );
   }
